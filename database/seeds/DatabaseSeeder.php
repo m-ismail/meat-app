@@ -12,9 +12,20 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
+
+		\App\User::truncate();
+		\App\AnimalType::truncate();
+		\App\CuttingMethod::truncate();
+		\App\DistributionCenter::truncate();
+		\App\Order::truncate();
+
 		Model::unguard();
 
-		// $this->call('UserTableSeeder');
+		$this->call('UserTableSeeder');
+		$this->call('TypesTableSeeder');
+		$this->call('MethodsTableSeeder');
+		$this->call('CentersTableSeeder');
+		$this->call('OrdersTableSeeder');
 	}
 
 }
