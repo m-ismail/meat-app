@@ -6,6 +6,6 @@ class AnimalType extends Model {
 
     protected $table = 'animal_types';
 
-	protected $fillable = ['name', 'stock'];
+	protected $fillable = ['name', 'stock', 'price'];
 
 }

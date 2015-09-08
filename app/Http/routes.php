@@ -11,11 +11,6 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('start', 'HomeController@index');
 
-Route::get('home', 'HomeController@index');
-
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+Route::resource('orders', 'OrderController');
