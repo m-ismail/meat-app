@@ -65,9 +65,7 @@ class OrderController extends Controller
 
         if($order){
             return response()->json([
-                'data' => [
-                    'order' => $order,
-                ],
+                'data' => $order,
                 'status' => 200
             ], 200);
         }
