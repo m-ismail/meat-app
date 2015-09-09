@@ -11,7 +11,7 @@ class Order extends Model {
 
 	protected $table = 'orders';
 
-    protected $fillable = ['status', 'book_time', 'type_id', 'method_id', 'center_id', 'user_id'];
+    protected $fillable = ['status', 'book_time', 'type_id', 'method_id', 'center_id', 'user_id', 'amount'];
 
     public function animalType(){
         return $this->belongsTo('App\AnimalType', 'type_id');
