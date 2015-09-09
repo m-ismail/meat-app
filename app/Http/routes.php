@@ -12,6 +12,7 @@
 */
 
 Route::group(['prefix'=>'api/v1.0'], function(){
+    Route::get('users/{device_id}', 'UserController@getOrders');
     Route::get('start', 'HomeController@index');
     Route::resource('orders', 'OrderController');
 });

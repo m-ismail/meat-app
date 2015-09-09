@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Order;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
@@ -37,33 +38,46 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        $v = Validator::make($request->all(), [
+            'name' => 'required',
+            'phone' => 'required',
+        ]);
+
+        if ($v->fails()) {
+            return response()->json([
+                'message' => '????? ???? ???????? ??????',
+                'status' => 202
+            ], 202);
+        }
+
         // if user not exists, create it
-        $user = User::where('mobile', $request->get('phone'))->first();
+        $user = User::where('device_id', $request->input('device_id'))->first();
         if (!$user) {
             $user = User::create([
-                'name' => $request->get('name'),
-                'mobile' => $request->get('phone'),
-                'email' => $request->get('phone'),
+                'name' => $request->input('name'),
+                'mobile' => $request->input('phone'),
+                'email' => $request->inputt('phone'),
+                'device_id' => $request->input('device_id'),
             ]);
         }
 
         // calc order amount
-        $type = AnimalType::find($request->get('type'));
-        $cut = CuttingMethod::find($request->get('cuts'));
+        $type = AnimalType::find($request->input('type'));
+        $cut = CuttingMethod::find($request->input('cuts'));
         $amount = $type->price + $cut->fees;
 
         // create order
         $order = Order::create([
             'status' => Order::STATUS_NEW,
             'book_time' => '',
-            'type_id' => $request->get('type'),
-            'method_id' => $request->get('cuts'),
-            'center_id' => $request->get('center'),
+            'type_id' => $request->input('type'),
+            'method_id' => $request->input('cuts'),
+            'center_id' => $request->input('center'),
             'user_id' => $user->id,
             'amount' => $amount,
         ]);
 
-        if($order){
+        if ($order) {
             return response()->json([
                 'data' => $order,
                 'status' => 200
