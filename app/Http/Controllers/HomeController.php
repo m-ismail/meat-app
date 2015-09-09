@@ -18,10 +18,11 @@ class HomeController extends Controller {
 		$methods = CuttingMethod::all();
 		$centers = DistributionCenter::all();
 
-		return response()->json([
+		return response()->json(['data' => [
 			'types' => $types,
 			'methods' => $methods,
-			'centers' => $centers,
+			'centers' => $centers,],
+			'code' => 200
 		], 200);
 	}
 
