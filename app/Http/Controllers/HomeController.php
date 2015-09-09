@@ -25,7 +25,7 @@ class HomeController extends Controller
                 'methods' => $methods,
                 'centers' => $centers,
             ],
-            'code' => 200
+            'status' => 200
         ], 200);
     }
 
