@@ -52,7 +52,7 @@ class OrderController extends Controller
         }
 
         // if user not exists, create it
-        $user = User::where('device_id', $request->input('device_id'))->first();
+        $user = User::where('mobile', $request->input('phone'))->first();
         if (!$user) {
             $user = User::create([
                 'name' => $request->input('name'),

@@ -6,9 +6,9 @@ use App\User;
 
 class UserController extends Controller {
 
-	public function getOrders($device_id){
+	public function getOrders($mobile){
 
-        $user = User::where('device_id', $device_id)->first();
+        $user = User::where('mobile', $mobile)->first();
         if($user){
             return response()->json([
                 'data' => $user->orders()->with('animalType', 'cuttingMethod', 'distCenter', 'user')->get(),

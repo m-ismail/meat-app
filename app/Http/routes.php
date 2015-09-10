@@ -20,7 +20,7 @@ Route::group(['prefix'=>'dashboard'], function(){
 
 // API
 Route::group(['prefix'=>'api/v1.0'], function(){
-    Route::get('users/{device_id}', 'api\v1\UserController@getOrders');
+    Route::get('users/{mobile}', 'api\v1\UserController@getOrders');
     Route::get('start', 'api\v1\HomeController@index');
     Route::resource('orders', 'api\v1\OrderController');
 });
