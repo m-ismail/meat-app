@@ -13,14 +13,22 @@
 
 // Dashboard
 Route::group(['prefix'=>'dashboard'], function(){
-    Route::get('/', 'dashboard\HomeController@index');
+    // user
+    Route::get('/', 'dashboard\UserController@getLogin');
+    Route::post('/', 'dashboard\UserController@postLogin');
+    // home
+    Route::get('/home', 'dashboard\HomeController@index');
+    //order
     Route::resource('orders', 'dashboard\OrderController');
 });
 
 
 // API
 Route::group(['prefix'=>'api/v1.0'], function(){
+    // user
     Route::get('users/{mobile}', 'api\v1\UserController@getOrders');
+    // home
     Route::get('start', 'api\v1\HomeController@index');
+    // order
     Route::resource('orders', 'api\v1\OrderController');
 });
