@@ -1,5 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers\api\v1;
 
+use App\Http\Controllers\Controller;
 use App\AnimalType;
 use App\CuttingMethod;
 use App\Http\Requests;
@@ -56,7 +57,7 @@ class OrderController extends Controller
             $user = User::create([
                 'name' => $request->input('name'),
                 'mobile' => $request->input('phone'),
-                'email' => $request->inputt('phone'),
+                'email' => $request->input('phone'),
                 'device_id' => $request->input('device_id'),
             ]);
         }

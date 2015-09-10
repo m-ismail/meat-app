@@ -11,8 +11,16 @@
 |
 */
 
+// Dashboard
+Route::group(['prefix'=>'dashboard'], function(){
+    Route::get('/', 'dashboard\HomeController@index');
+    Route::resource('orders', 'dashboard\OrderController');
+});
+
+
+// API
 Route::group(['prefix'=>'api/v1.0'], function(){
-    Route::get('users/{device_id}', 'UserController@getOrders');
-    Route::get('start', 'HomeController@index');
-    Route::resource('orders', 'OrderController');
+    Route::get('users/{device_id}', 'api\v1\UserController@getOrders');
+    Route::get('start', 'api\v1\HomeController@index');
+    Route::resource('orders', 'api\v1\OrderController');
 });

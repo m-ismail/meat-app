@@ -1,0 +1,21 @@
+<div class="container" ng-controller="OrderController">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3>Orders</h3></div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <tr ng-repeat='order in orders'>
+                            <td>{{order.status}}</td>
+                            <td>
+                                <button class="btn btn-primary" type="button" ng-click="show(order)">
+                                    Show <span class="badge"></span>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
