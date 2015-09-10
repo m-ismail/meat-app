@@ -20,7 +20,7 @@
                 <td>{{order.animal_type.name}}</td>
                 <td>{{order.cutting_method.name}}</td>
                 <td>{{order.dist_center.name}}</td>
-                <td ng-show="order.status == 'new'">
+                <td ng-show="order.status == 'new' || order.status == 'confirmed'">
                     <button type="button" class="btn btn-success" ng-click="updateStatus(order, 'confirmed')">Confirmed</button>
                     <button type="button" class="btn btn-danger" ng-click="updateStatus(order, 'cancelled')">Cancelled</button>
                     <button type="button" class="btn btn-default" ng-click="updateStatus(order, 'delivered')">Delivered</button>

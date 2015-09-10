@@ -18,9 +18,12 @@ Route::group(['prefix'=>'dashboard'], function(){
     Route::post('/', 'dashboard\UserController@postLogin');
     // home
     Route::get('/home', 'dashboard\HomeController@index');
-    //order
+    // order
     Route::resource('orders', 'dashboard\OrderController');
     Route::get('orders/{id}/{status}', 'dashboard\OrderController@updateStatus');
+    // types
+    Route::resource('types', 'dashboard\AnimalTypeController');
+    Route::get('types/delete/{id}', 'dashboard\AnimalTypeController@delete');
 });
 
 
