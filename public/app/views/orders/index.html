@@ -10,6 +10,7 @@
                 <th>Animal type</th>
                 <th>Cutting method</th>
                 <th>Dist. center</th>
+                <th>Date</th>
                 <th>Action</th>
             </tr>
             <tr ng-repeat='order in orders'>
@@ -20,6 +21,7 @@
                 <td>{{order.animal_type.name}}</td>
                 <td>{{order.cutting_method.name}}</td>
                 <td>{{order.dist_center.name}}</td>
+                <td>{{order.created_at}}</td>
                 <td ng-show="order.status == 'new' || order.status == 'confirmed'">
                     <button type="button" class="btn btn-success" ng-click="updateStatus(order, 'confirmed')" ng-hide="order.status == 'confirmed'">Confirmed</button>
                     <button type="button" class="btn btn-danger" ng-click="updateStatus(order, 'cancelled')">Cancelled</button>
