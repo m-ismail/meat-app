@@ -8,4 +8,6 @@ class AnimalType extends Model {
 
 	protected $fillable = ['name', 'stock', 'price'];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
 }

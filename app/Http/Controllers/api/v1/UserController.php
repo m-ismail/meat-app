@@ -11,7 +11,7 @@ class UserController extends Controller {
         $user = User::where('device_id', $device_id)->first();
         if($user){
             return response()->json([
-                'data' => $user->orders,
+                'data' => $user->orders()->with('animalType', 'cuttingMethod', 'distCenter', 'user')->get(),
                 'status' => 200
             ], 200);
         }

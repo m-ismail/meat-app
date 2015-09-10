@@ -8,4 +8,6 @@ class CuttingMethod extends Model {
 
     protected $fillable = ['name', 'fees'];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
 }

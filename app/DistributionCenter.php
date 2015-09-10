@@ -8,4 +8,6 @@ class DistributionCenter extends Model {
 
     protected $fillable = ['name', 'address', 'phone', 'work_from', 'work_to'];
 
+    protected $hidden = ['created_at', 'updated_at'];
+
 }
