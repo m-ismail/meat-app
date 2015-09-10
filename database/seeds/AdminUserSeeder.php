@@ -20,8 +20,8 @@ class AdminUserSeeder extends Seeder
         User::create([
             'name' => 'admin',
             'password' => Hash::make('admin@123'),
-            'mobile' => $faker->phoneNumber(),
-            'email' => $faker->unique()->email(),
+            'mobile' => '00000000000',
+            'email' => 'admin@admin.com',
         ]);
 
     }
