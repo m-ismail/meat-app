@@ -19,7 +19,16 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return Order::all();
+        return Order::with('animalType', 'cuttingMethod', 'distCenter', 'user')->get();
+    }
+
+    public function updateStatus($id, $status){
+        $order = Order::find($id)->update([
+            'status' => $status
+        ]);
+        if($order){
+            return 'updated';
+        }
     }
 
     /**

@@ -1,5 +1,5 @@
 <div class="panel panel-default" ng-controller="OrderController">
-    <div class="panel-heading"><h3>Orders</h3></div>
+    <div class="panel-heading"><h3>Cutting Methods</h3></div>
     <div class="panel-body">
         <table class="table table-striped">
             <tr>
@@ -20,10 +20,8 @@
                 <td>{{order.animal_type.name}}</td>
                 <td>{{order.cutting_method.name}}</td>
                 <td>{{order.dist_center.name}}</td>
-                <td ng-show="order.status == 'new'">
-                    <button type="button" class="btn btn-success" ng-click="updateStatus(order, 'confirmed')">Confirmed</button>
-                    <button type="button" class="btn btn-danger" ng-click="updateStatus(order, 'cancelled')">Cancelled</button>
-                    <button type="button" class="btn btn-default" ng-click="updateStatus(order, 'delivered')">Delivered</button>
+                <td>
+
                 </td>
             </tr>
         </table>

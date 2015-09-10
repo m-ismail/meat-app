@@ -20,6 +20,7 @@ Route::group(['prefix'=>'dashboard'], function(){
     Route::get('/home', 'dashboard\HomeController@index');
     //order
     Route::resource('orders', 'dashboard\OrderController');
+    Route::get('orders/{id}/{status}', 'dashboard\OrderController@updateStatus');
 });
 
 

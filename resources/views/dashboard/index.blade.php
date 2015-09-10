@@ -10,8 +10,24 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body ng-app="meatApp">
-<div class="container-fluid">
-    <ng-view></ng-view>
+<div class="container">
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-pills" bs-active-link>
+                <li role="presentation" class="active"><a href="#/orders">Orders</a></li>
+                <li role="presentation"><a href="#/types">Animals types</a></li>
+                <li role="presentation"><a href="#/methods">Cutting methods</a></li>
+                <li role="presentation"><a href="#/centers">Distribution centers</a></li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <ng-view></ng-view>
+        </div>
+    </div>
 </div>
 </body>
 </html>
