@@ -24,6 +24,12 @@ Route::group(['prefix'=>'dashboard'], function(){
     // types
     Route::resource('types', 'dashboard\AnimalTypeController');
     Route::get('types/delete/{id}', 'dashboard\AnimalTypeController@delete');
+    // methods
+    Route::resource('methods', 'dashboard\CuttingMethodController');
+    Route::get('methods/delete/{id}', 'dashboard\CuttingMethodController@delete');
+    // centers
+    Route::resource('centers', 'dashboard\DistributionCenterController');
+    Route::get('centers/delete/{id}', 'dashboard\DistributionCenterController@delete');
 });
 
 

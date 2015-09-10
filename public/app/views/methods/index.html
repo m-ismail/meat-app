@@ -1,27 +1,37 @@
-<div class="panel panel-default" ng-controller="OrderController">
-    <div class="panel-heading"><h3>Cutting Methods</h3></div>
+<div class="panel panel-default" ng-controller="CuttingMethodController">
+    <div class="panel-heading clearfix">
+        <h3 class="pull-left">Cutting Method</h3>
+        <button type="button" class="btn btn-info pull-right" ng-click="new()">Add new method</button>
+    </div>
     <div class="panel-body">
+
+        <form ng-show="addnew">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" placeholder="Enter method name" ng-model="newMethod.name">
+            </div>
+            <div class="form-group">
+                <label>Fees</label>
+                <input type="text" class="form-control" placeholder="Enter fees" ng-model="newMethod.fees">
+            </div>
+            <button type="button" class="btn btn-success" ng-click="save()">Save</button>
+            <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+        </form>
+
+        <hr>
+
         <table class="table table-striped">
             <tr>
-                <th>Customer name</th>
-                <th>Customer mobile</th>
-                <th>Status</th>
-                <th>Amount</th>
-                <th>Animal type</th>
-                <th>Cutting method</th>
-                <th>Dist. center</th>
+                <th>Name</th>
+                <th>Fees</th>
                 <th>Action</th>
             </tr>
-            <tr ng-repeat='order in orders'>
-                <td>{{order.user.name}}</td>
-                <td>{{order.user.mobile}}</td>
-                <td>{{order.status}}</td>
-                <td>{{order.amount}}</td>
-                <td>{{order.animal_type.name}}</td>
-                <td>{{order.cutting_method.name}}</td>
-                <td>{{order.dist_center.name}}</td>
+            <tr ng-repeat='method in methods'>
+                <td>{{method.name}}</td>
+                <td>{{method.fees}}</td>
                 <td>
-
+                    <button type="button" class="btn btn-warning" ng-click="edit(method)">Edit</button>
+                    <button type="button" class="btn btn-danger" ng-click="delete(method)">Delete</button>
                 </td>
             </tr>
         </table>
