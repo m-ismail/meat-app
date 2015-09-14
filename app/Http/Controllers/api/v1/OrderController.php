@@ -58,7 +58,7 @@ class OrderController extends Controller
                 'name' => $request->input('name'),
                 'mobile' => $request->input('phone'),
                 'email' => $request->input('phone'),
-                'device_id' => $request->input('device_id'),
+                'device_id' => $request->input('device_id', '111222333'),
             ]);
         }
 
